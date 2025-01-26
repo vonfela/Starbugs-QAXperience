@@ -83,3 +83,7 @@ AULA 22:            https://github.com/qax-education/cucumber-experience
     Atendendo claramente a expectativa do PO ou do cliente que construiu a história do usuário com esses critérios de
     aceitação, então EU COMO QA vou garantir a QUALIDADE em todas as etapas e não apenas na hora de testar e procurar
     o bug mas também na hora de especificar a funcionalidade que deve ser desenvolvida.
+
+
+
+    teste de commit
