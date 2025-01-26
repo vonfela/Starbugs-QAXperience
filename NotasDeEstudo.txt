@@ -1,0 +1,87 @@
+BDD = Cucumber = Gherking
+
+Dado
+Quando
+Então
+
+
+resultado final: documentação escrita em linguagem natural e automatizavel, documentação viva/executavel, isso não é bdd, é cucumber executando teste escrito com essa sintaxe
+
+
+
+USO DE BDD: escrever especificação q vai gerar colaboração com a equipe de devs.
+
+
+SE USAR PARA DESENVOLVER ALÉM DES TESTAR, OU SEJA, SE VOCÊ USAR O GHERKIN PRA CONSTRUIR CRITERIOS DE ACEITAÇÃO E ESPECIFICAÇÕES COLABORATIVAS VC VAI TER UM GANHO AINDA MELHOR NA QUALIDADE DO SEU PRODUTO.
+
+
+def em Ruby é a palavra chave para DEFinir um método
+
+
+Especifica em Gherking, Automatiza com Cucumber
+
+(a gente usa o Capybara com o cucumber mas ele depende do selenium webdriver)
+
+
+
+DESCRIÇÃO DE ESTRUTURA/PASTAS/ARQUIVOS:
+
+1. Gemfile = Source é de onde as bibliotecas para/do Ruby serão importadas quando adicionamos um gem'biblioteca';
+
+2. cucumber.yml = não lembro, revisar video aula depois;
+
+3. catalogo.feature = É um arquivo onde está a especificação descrita em BDD/Capybara;
+
+4. env.rb = é o ambiente virtual de desenvolvimento do Ruby;
+
+5. steps.rb = é onde iremos automatizar a especificação descrita em BDD no arquivo .feature 
+
+6. GERANDO O ESQUELETO(método) DO TESTE AUTOMATIZADO BASEADO APENAS NO BDD:
+    Para isto basta executarmos o arquivo onde estão os passos automatizados (mesmo que esteja vazio, insira qualquer código que passe), 
+    ao final da execução será informado que os passos foram skipados pois não há o código e irá te fornecer o código esqueleto.
+
+
+Data table = recurso do cucumber
+
+PAGE OBJECTS: 
+    Criar pasta "pages"  dentro da pasta "support" > criar arquivo home.rb que vai ser a homepage do teste;
+    Camada page objects, pra facilitar a manutenção do código e reuso de alguns steps que são incomuns entre features e cenarios em gherkin.
+    Page object é um padrão de projeto onde vc faz a organização por páginas.
+    Deixa o projeto versátil e com boa escalabilidade.
+
+    No arquivo home.rb,Essa arquiv, a classe HomePage não consegue executar VISIT (naturalmente sem o INCLUDE), que é um método DO CAPYBARA, o visit funciona bem na camada de steps mas não nessa home, pq o arquivo env que é o arquivo principal do cucumber onde a gente tem a importação e configuração do Capybara só que o Cucumber naõ sabe que eu estou construindo uma nova camada personalizada, eu tenho que deixar claro que eu quero usar o Capybara dentro dessa classe. classe visit sem o include não consegue executar
+
+    Com o page objects no projeto cucumber temos 3 camadas: 
+        1. Camada de esécificação usando Gherkin;
+        2. tem a camada de implementação onde estão os steps, onde vc organiza todo o fluxo de execução;  
+        3. e a camada meio que principal que onde da realmente vida ao teste automatizado que é a camada de page objects onde a gente tem validações e ações organizadas por páginas.
+
+
+
+AULA 22:            https://github.com/qax-education/cucumber-experience
+
+    Você como analista/engenheiro de QA, analisando essa documentação do cupom.md identifica que é possível que o dev
+    não entenda claramente qual a ideia da funcionalidade (no caso a funcionalidade pede para que seja criado um campo
+    de cupom de desconto onde o cupom deve ser aplicado somente ao valor do produto e não ao valor total que considera
+    o valor do frente, então ao final deve ser aplicado o desconto somente no valor do produto, recalculando o valor
+    total do pedido com o valor do cupom aplicado somente ao produto + valor do frete, além de mais critérios/cenários
+    esse cenário foi apenas um exemplo do que pode ser mal interpretado). 
+    Será que o dev vai entender isso de forma correta? Ou seja, se ele errar e aplicar no valor total poDde impactar
+    financeiramente a empresa. Então eu tento entender se isso aqui é o suficiente para o desenvolver entregar um 
+    projeto de qualidade para eu testar.
+
+    Portanto essa é uma das idéias principais do Gherking/BDD, você pode usar o Gherking como uma ferramenta para
+    colaborar com o enriquecimento dessa documentação, construindo os cenários aqui para facilitar o entendimento para
+    o desenvolvedor. Eu posso usar enriquecer isso pois essa funcionalidade ainda não está pronta, melhorando a 
+    comunicação para que eu tenho um software de qualidade, essa é a ideia.
+    ATÉ O MOMENTO NÓS USAMOS O GHERKIN APENAS PARA AUTOMATIZAR COM O CUCUMBER O QUE JA EXISTIA DO SOFTWARE.
+    NESSE MÓDULO NÓS VAMOS USAR O GHERKIN PARA ENRIQUECER A HISTÓRIA, PARA TRAZER MAIS INFORMAÇÕES RELEVANTES PARA O 
+    TIME DE DESENVOLVIMENTO DE UMA FUNCIONALIDADE QUE AINDA ESTÁ EM DESENVOLVIMENTO.
+
+    E O OBJETIVO É CONSEQUÊNCIA, UM SOFTWARE DE QUALIDADE.
+
+    Atendendo claramente a expectativa do PO ou do cliente que construiu a história do usuário com esses critérios de
+    aceitação, então EU COMO QA vou garantir a QUALIDADE em todas as etapas e não apenas na hora de testar e procurar
+    o bug mas também na hora de especificar a funcionalidade que deve ser desenvolvida.
+
+    Este é o repositório de estudos onde serão comitadas as atualizações do curso da QAXperience oferecido/ministrado pelo Fernando Papito, referente à BDD com Gherking, Cucumber, Capybara e RSpec.
