@@ -96,4 +96,10 @@ AULA 23:     Henriquecendo critérios de aceite
 
 
 
-AULA 24: 
+AULA 24:        https://starbugs-qa.vercel.app
+
+    Nesta aula não foi feita muita coisa, foi apenas nos apresentado o novo site que contém a nova funcionalidade do cupom no checkout.
+    Preenchemos a especificação com os dados de massa de teste dos cupons, porém precisamos lembrar que esta ainda é apenas a especificação.
+    Na proxima aula vamos remodelar essa especificação ai sim pensando em automatizar e não necessariamente precisa ser em cucumber.
+
+    
