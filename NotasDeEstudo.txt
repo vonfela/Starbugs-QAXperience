@@ -102,4 +102,18 @@ AULA 24:        https://starbugs-qa.vercel.app
     Preenchemos a especificação com os dados de massa de teste dos cupons, porém precisamos lembrar que esta ainda é apenas a especificação.
     Na proxima aula vamos remodelar essa especificação ai sim pensando em automatizar e não necessariamente precisa ser em cucumber.
 
-    
+
+
+AULA 25:        AUTOMAÇÕA COM GHERKIN?
+
+    Nesta aula alteramos a especificação depois que a funcinalidade ja esta desenvolvida, alterando de uma forma mais colaborativa para uma forma/cenário mais técnica, ficando melhor para automação.
+
+    Além da alteração da especificação para um cenário mais técnico, também criamos os steps da automação dessa especificação com a criação do arquivo cupom_steps.rb dentro da pasta step_definitions,
+    implementando assim a forma mais técnica da especificação.
+    Lembrando que transformamos tudo em page objcts, adicionando também mais um método no page object do checkout,
+    adicionando o método set_discout, onde ele encontra o campo do disconto, seta o cupon e clica no botão de aplicar.
+
+    essa foi a metade da aula, onde remodelamos e automatizamos o primeiro cenário.
+    Vou deixar para continuar/terminar essa aula amanhã porque agora são 02:53am e eu estou muito cansado, não consigo
+    absorver mais nada (apesar de saber mais ou menos como vai seguir/terminar essa aula.)
+

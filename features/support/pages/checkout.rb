@@ -42,4 +42,9 @@ class CheckoutPage
         click_on 'Confirmar pedido'                                 # Diferente do botão de buscar cep que era do tipo input, este elemento do botão de confirmar pedido é do tipo button, então usamos o click_on direto, no seco, que é um método do Capybara que clica em um botão, link ou qualquer elemento que tenha um texto. Já que este método está olhando por toda a página, ele vai encontrar o botão de "confirmar pedido" pelo texto que é o valor em texto do botão e clicar nele. Mas sempre lembrando que seguindo o padrão vamos transformar isso em page objects, criando um método para isso mesmo que esta aplicação ja seja bem simples e óbvia mas temos que seguir o padrão do projeto.
     end
 
+    def set_discount(coupon_code)
+        find('input[placeholder="Código do cupom"]').set(coupon_code)                   # encontrando o campo do cupon e setando o valor do cupom
+        click_on 'Aplicar' 
+    end                                           
+
 end

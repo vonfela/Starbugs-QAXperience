@@ -4,7 +4,7 @@ class HomePage                                                  # Essa classe va
     include Capybara::DSL                                       # Agora essa classe  HomePage vai ter todos os recursos do Capybara pra usar dentro de qualquer método que for implementado, nessa caso o método find por exemplo, que é um método do Capybara.
 
     def open                                                    # esse metodo tem a responsabilidade de abrir a pagina principal.
-        visit 'https://starbugs.vercel.app/'                    # Essa arquiv, a classe HomePage não consegue executar VISIT, que é um método DO CAPYBARA, o visit funciona bem na camada de steps mas não nessa home, pq o arquivo env que é o arquivo principal do cucumbero a gente tem a importação e configuração do Capybara só que o Cucumber naõ sabe que eu estou construindo uma nova camada personalizad, eu tenho que deixar claro que eu quero usar o Capybara dentro dessa classe. classe visit sem o include não consegue executar
+        visit 'https://starbugs-qa.vercel.app/'                    # Essa arquiv, a classe HomePage não consegue executar VISIT, que é um método DO CAPYBARA, o visit funciona bem na camada de steps mas não nessa home, pq o arquivo env que é o arquivo principal do cucumbero a gente tem a importação e configuração do Capybara só que o Cucumber naõ sabe que eu estou construindo uma nova camada personalizad, eu tenho que deixar claro que eu quero usar o Capybara dentro dessa classe. classe visit sem o include não consegue executar
     end   
     
     def coffee_list                                                   # esse metodo tem a responsabilidade de retornar todos os cafés disponíveis na página principal.
