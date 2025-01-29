@@ -45,6 +45,11 @@ class CheckoutPage
     def set_discount(coupon_code)
         find('input[placeholder="Código do cupom"]').set(coupon_code)                   # encontrando o campo do cupon e setando o valor do cupom
         click_on 'Aplicar' 
-    end                                           
+    end   
+    
+    def assert_notice(text)
+        notice = find('.notice').text
+        expect(notice).to eql text
+    end
 
 end

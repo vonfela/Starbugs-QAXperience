@@ -1,8 +1,8 @@
 Dado('que iniciei a compra do item:') do |table|
-    product = table.rows_hash
+    @product = table.rows_hash
 
     @home.open
-    @home.buy(product[:name])
+    @home.buy(@product[:name])
 end
 
 Quando('aplico o seguinte cupom: {string}') do |coupon_code| 
@@ -13,5 +13,15 @@ end
 
 Então('o valor final da compra deve ser atualizado para {string}') do |final_price|
     @checkout.assert_total_price(final_price)
-    sleep 5
+
+end
+
+
+Então('devo ver a notificação {string}') do |notice|
+    @checkout.assert_notice(notice)
+end
+
+
+Então('o valor final da compra deve permanecer o mesmo') do
+    @checkout.assert_total_price(@product[:total])                                  # Aqui estamos reaproveitando o metodo product que temos no primeiro passo desse arquivo, que referencia a table da massa de testes, então no primeiro passo eu selecionei o produto pelo nome, aqui eu estou pegando o valor total do produto.
 end

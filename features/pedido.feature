@@ -3,7 +3,7 @@
 Funcionalidade: Pedidos
 
     Como um usuário do site Starbugs, eu quero selecionar e comprar cafésPara que eu possa receber os produtos em meu endereço e efetuar o pagamento na entrega.
-
+@smoke
     Cenário: Compra bem sucedida
 
         Dado que estou na página principal da Starbugs

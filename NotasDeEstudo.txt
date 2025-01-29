@@ -117,3 +117,29 @@ AULA 25:        AUTOMAÇÕA COM GHERKIN?
     Vou deixar para continuar/terminar essa aula amanhã porque agora são 02:53am e eu estou muito cansado, não consigo
     absorver mais nada (apesar de saber mais ou menos como vai seguir/terminar essa aula.)
 
+    SEGUNDA PARTE DA AULA 25:
+
+    Terminamos de automaizar os ultimos dois cenários de validação de cupom expirado e inválido, tornando e reaproveitando
+    a variável do produto em global no primeiro passo assim podemos acessar o dado do valor total do produto, sendo que no primeiro
+    passo usamos apenas o nome do produto.
+
+    na camada de especificação conseguimos reaproveitar o data table para todos os cenários assim como também centralizamos
+    em um dado só em vez de 3, utilizando só o QUANDO e ENTÂO dos outros cenários, isso é o contexto no BDD/Gherkin.
+    Também criamos um novo método de assert_notice para validar as notificações de cupom invalido e expirado no page objects do checkout.
+
+
+AULA 26:                    Teste de regressão.
+
+        Agora que temos nosso projeto pronto e totalmente automatizados podemos usar ele para fins de teste de regressão
+        ou seja, rodando todos os testes de uma vez e ver se algum da erro, neste caso todos devem passar.
+
+        colocamos todos os arquivos de steps para rodar como comando "bundl exec cucumber", sem distinguir arquivos ou tags.
+        ao contrario do "bundle exec cucumber features/cupom.feature" por exemplo
+
+
+AULA 27:                    Teste de fumaça.
+
+        Conforme a história, o primeiro teste do desenvolvimento orientado a hardware la nos primórdios era ligar para ver
+        se saia fumaça, se não saisse fumaça é que estava tudo o que, essa é a ideia da tag @smoke no cenarios a nivel de especificação
+        quando um cenário está com a tag @smoke siginifica que este teste é o teste principal, que deve rodar antes dos demais.
+        bundle exec cucumber -t @smoke
