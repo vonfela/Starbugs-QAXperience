@@ -33,16 +33,16 @@ Funcionalidade: Uso de Cupons no Checkout
     #    E o valor final da compra deve ser atualizado para R$ 25,99
 
     
-    Cenario: Cupom Expirado
+                    #Cenario: Cupom Expirado                                    # Este é o cenário que podemos habilitar caso não queira usar o esquema de cenário.
 
     #Dado que iniciei a compra do item:
     #    | name      | Café com Leite |
     #    | price     | R$ 19,99       |
     #    | delivery  | R$ 10,00       |
     #    | total     | R$ 29,99       |
-    Quando aplico o seguinte cupom: "PROMO20"
-    Então devo ver a notificação "Cupom expirado!"
-        E o valor final da compra deve permanecer o mesmo
+                    #Quando aplico o seguinte cupom: "PROMO20"                  # Este é o cenário que podemos habilitar caso não queira usar o esquema de cenário.
+                    #Então devo ver a notificação "Cupom expirado!"             # Este é o cenário que podemos habilitar caso não queira usar o esquema de cenário.
+                    #    E o valor final da compra deve permanecer o mesmo      # Este é o cenário que podemos habilitar caso não queira usar o esquema de cenário.
 
     #Dado que estou na página de Checkout
     #    E o item que está no meu carrinho é o Café com Leite no valor de R$ 19,99
@@ -54,16 +54,16 @@ Funcionalidade: Uso de Cupons no Checkout
     #    E o valor final deve permanecer o mesmo
 
     
-    Cenario: Cupom Inválido
+                    #Cenario: Cupom Inválido                                    # Este é o cenário que podemos habilitar caso não queira usar o esquema de cenário.
 
     #Dado que iniciei a compra do item:
     #    | name      | Café com Leite |
     #    | price     | R$ 19,99       |
     #    | delivery  | R$ 10,00       |
     #    | total     | R$ 29,99       |
-    Quando aplico o seguinte cupom: "PROMO100"
-    Então devo ver a notificação "Cupom inválido!"
-        E o valor final da compra deve permanecer o mesmo
+                    #Quando aplico o seguinte cupom: "PROMO100"                 # Este é o cenário que podemos habilitar caso não queira usar o esquema de cenário.
+                    #Então devo ver a notificação "Cupom inválido!"             # Este é o cenário que podemos habilitar caso não queira usar o esquema de cenário.
+                    #    E o valor final da compra deve permanecer o mesmo      # Este é o cenário que podemos habilitar caso não queira usar o esquema de cenário.
 
     #Dado que estou na página de Checkout
     #    E o item que está no meu carrinho é o Café com Leite no valor de R$ 19,99
@@ -73,3 +73,20 @@ Funcionalidade: Uso de Cupons no Checkout
     #Quando aplicao esse cupom de desconto
     #Então devo ver a seguinte notificação "Cupom inválido!"
     #    E o valor final deve permanecer o mesmo
+
+                                                                                    # Nos cenários de cupom invalido e cupom expirados temos o mesmo comportamento de aplicar um cupom, valiar essa notificação e validar o valor final, mudando apenas os dados, então podemos criar um esquema de cenario/scenario outline 
+                                                                                    # Então podemos fazer uma reimplementação/remodelação para esta forma:
+                                                                                    # com a tag @ddt (data driven test), pois isso é um teste claramente orientado a dados.
+    @ddt                                                                            
+    Esquema do Cenário: Tentativa de aplicar o desconto                               
+
+                                                                                    # Aqui trocamos a massa de testes por um placeholder , que pegará a informação da tabela de matriz em pipe.
+    Quando aplico o seguinte cupom: "<cupom>"                                       
+    Então devo ver a notificação "<saida>"
+        E o valor final da compra deve permanecer o mesmo
+
+                                                                                    # Agora temos uma especificação que executa dois comportamentos com base na massa de testes. 
+    Exemplos:                                                                       
+    | cupom    | saida           |
+    | PROMO20  | Cupom expirado! |
+    | PROMO100 | Cupom inválido! |

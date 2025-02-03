@@ -213,6 +213,18 @@ AULA 29:                ANEXANDO SCREENSHOTS
             que queira compartilhar publicamente mas não necessariamente os reports das suas execuções.
 
 
+AULA 30: ACHOU QUE TINHA ACABADO NÉ?            SCENARIO OUTLINE:
+
+
+     Scenario outline/esquema do cenario é um recurso do cucumber.
+     Definimos um esquema de cenario onde temos uma especificação que executa mais de doius comportamentos  
+    Quando implementamos esquema de cenario o cucumber entende que tem que ter a matriz (tabela de pipe) e que cada place holder  ("<placeholder>") vai ser substituido pelas colunas com as informações então ele vai conclular que tem duas linas ou seja, dois cenarios para ser executado de acordo com a massa de teste de cada linha da tabela.
+    Isso é muito bom para reuso com o placeholder.
+
+
+
+    AGORA SIM, CURSO FINALIZADO.
+
 
 
 
