@@ -143,3 +143,46 @@ AULA 27:                    Teste de fumaça.
         se saia fumaça, se não saisse fumaça é que estava tudo o que, essa é a ideia da tag @smoke no cenarios a nivel de especificação
         quando um cenário está com a tag @smoke siginifica que este teste é o teste principal, que deve rodar antes dos demais.
         bundle exec cucumber -t @smoke
+
+
+AULA 28:                    RELATÓRIOS E FORMATOS DE SAíDA;
+
+        bundle exec cucumber --help
+
+        Nesta aula vamos falar do argumento --form ou -f, esse argumento faz com que vc possa definir o formato de saída 
+        para cada execução, 
+        html é um output bem legal pq tras um relatório mais visual e interativo
+        junit é legal para integrar com CI, tipo o jenkins
+        pretty é o formato padrão do cucumber
+
+        JUNIT - é bacana pq vai pegar todo o output dessa execução e salvar num arquivo junit
+        mas pra funcionar tenho que passar uma argumento adicional pra falar pro cucumber onde esse arquivo vai ser adicionando
+        então adicionamos o argumento --out 
+        bundle exec cucumber -t @smoke -f junit --out reports
+        onde ele automaticamente criará a pasta reports e adicionará este arquivo XML la com toda a execução no formato junit
+        você pode user isso no servidor de CI/CD
+        
+        JSON - É quase a mesma idéia do junit porém no formato JSON, mas diferente do junit onde passamos o nome da pasta
+        para o json precisamos especificar o nome do arquivo também além do diretório
+        bundle exec cucumber -t @smoke -f json -o reports/report.json
+
+        HTML - bundle exec cucumber -t @smoke -f html -o reports/report.html
+        Gera o report visual/interativo via web browser, precisamos também passar o argumento de output com o diretório
+        e nome do arquivo do report.
+
+        Lembrando que quando executamos passando outros formatos de saída, gerando um arquivo por exemplo, não temos
+        a saída do teste no terminal, e eu sinto falta disso, então FELIZMENTE posso fazer ter a saída tanto no arquivo
+        quanto no temrinal, basta passarmos o argumento de format de novo com o formato pretty por exemplo
+        mas poderia ser progress também por exemplo, saídas de terminal né e não que gerem arquivo:
+        bundle exec cucumber -f html -o reports/report.html -f pretty
+        O cucumber permite fazer uma execução multiformato
+
+        IMPORTANTE:
+        Podemos passar esses argumentos de formatação de saída no arquivo cucumber.yml
+        tornando assim os argumento de formatação a forma de exeução padrão quando executarmos o bundle exec cucumber
+        ou seja, executando por tag ou não, por feature ou não, ele sempre vai fazer esse output.
+        Lembrando que desta forma o arquivo de report terá um nome fixo, sendo assim, sempre sera sobrescrito o ultimo
+        report.
+
+
+
