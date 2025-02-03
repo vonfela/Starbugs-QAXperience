@@ -185,4 +185,34 @@ AULA 28:                    RELATÓRIOS E FORMATOS DE SAíDA;
         report.
 
 
+AULA 29:                ANEXANDO SCREENSHOTS
+
+        1. Acessamos o arquivo hooks.rb e adicionamos um gancho AFTER, o gancho BEFORE é executado ANTES de cada teste
+        o AFTER é depois de cada teste e porque implementamos a estratégia de screenshot dentro desse gancho?
+        Sempre que eu finalizo um teste/cenario eu tenho um desfecho onde eu faço a validação para garantir que o
+        cenário passou, então esse é o momento oportuno pra eu tirar um print e anexar no meu relatório.
+
+        2. Lembrando que com este gancho, será armazenado apenas a último screenshot do último teste executado, ou seja,
+        se tiver mais de uma feature, mais de um cenário, e rodarmos uma regressão completa, todos os prints serão tirados
+        de todos as features e todos os cenários durante a execução e anexados no relatório, porém na pasta de SCREENSHOTS
+        TERÁ APENAS O ÚLTIMO SCREENSHOT DO ULTIMO TESTE EXECUTADO.
+
+        3. É legal adicionarmos os relatórios e evidencias automáticas principalmente quando o projeto de automação está no
+        início da implementação no time, então é legal adicionar relatório/evidência para tudo, dando mais segurança para o meu time.
+        Mas depois de um certo tempo de consolidação dos testes automatizados, quando a equipe ja vê/sabe que os testes automatizados
+        agregam valor, podemos alterar para que essas evidências seja tiradas/adicionadas no relatório apenas caso falhe.
+        Fazemos isso passando o argumento em pipe no método After no arquivo hooks.rb.
+
+
+        IMPORTANTE:   CASO NÃO PRECISA SUBIR PARA O GIT/VERSIONAR ARQUIVOS DE REPORTS/SCREENSHOTS:
+
+            podemos adicionar o aquivo .gitignore e adicionarmos o diretório do qual não queremos versionar ao
+            dar git add., git commit, git push.
+            Eu adicionei neste projeto mas deixei comentado pois quero subir os relatórios e screenshots também.
+            Mas apenas para fins de conhecimento. o que é interessante se você tiver por exemplo um projeto pessoal
+            que queira compartilhar publicamente mas não necessariamente os reports das suas execuções.
+
+
+
+
 

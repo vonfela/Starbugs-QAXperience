@@ -1,1 +1,1 @@
-default: --publish-quiet -f html -o reports/report.html -f pretty
+default: --publish-quiet -f html -o reports/reportAula29RegressaoCompletaComScreenshotAnexadaDeTodosOsTestesComID1.html -f pretty
